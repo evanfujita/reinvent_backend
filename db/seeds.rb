@@ -5,8 +5,7 @@ Dish.destroy_all
 Ingredient.destroy_all
 Component.destroy_all
 
-
-User.create(name: 'Evan', username: 'evan', password_digest: 'aaa', restaurant_name: 'fujiya')
+User.create(first_name: 'Evan', last_name: 'Fujita', username: 'evan', password_digest: 'aaa', restaurant_name: 'fujiya')
 
 Station.create(name: 'GM')
 Station.create(name: 'Grill')
