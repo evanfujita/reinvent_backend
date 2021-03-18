@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+    # skip_before_action :authorized, only: [:create]
+
+    def profile
+        render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    end
 
     def index
         users = User.all
@@ -16,8 +21,15 @@ class UsersController < ApplicationController
 
     def create
         user = User.new(user_params)
-        user.save
+        
+        if user.save
+            # token = encode_token(user_id: user.id)
+            # render json: { user: UserSerializer.new(user), jwt: token }, status: :created
         render json: user
+        else
+            render json: user
+            render json: { error: 'failed to create user' }, status: :note_acceptable
+        end
     end
 
     def destroy
@@ -26,20 +38,12 @@ class UsersController < ApplicationController
         render json: {message: 'deleted'}
     end
 
-    def auth
-        user = User.find_by(username: params[:username])
-        if user
-            render json: user
-        else
-            render json: { error: 'Invalid Username or Password'}
-        end
-    end
 
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :password, :password_confirmation)
+        params.require(:user).permit(:first_name, :last_name, :restaurant_name, :username, :password, :password_confirmation)
     end
 
 end

@@ -5,17 +5,17 @@ Dish.destroy_all
 Ingredient.destroy_all
 Component.destroy_all
 
-User.create(first_name: 'Evan', last_name: 'Fujita', username: 'evan', password_digest: 'aaa', restaurant_name: 'fujiya')
+User.create(first_name: 'Evan', last_name: 'Fujita', username: 'evan', password: 'aaa', password_confirmation: 'aaa', restaurant_name: 'fujiya')
 
-Station.create(name: 'GM')
-Station.create(name: 'Grill')
-Station.create(name: 'Fish')
-Station.create(name: 'Meat')
+Station.create(name: 'GM', user_id: 1)
+Station.create(name: 'Grill', user_id: 1)
+Station.create(name: 'Fish', user_id: 1)
+Station.create(name: 'Meat', user_id: 1)
 
-Category.create(name: 'Protein')
-Category.create(name: 'Produce')
-Category.create(name: 'Dairy')
-Category.create(name: 'Dry Goods')
+Category.create(name: 'Protein', user_id: 1)
+Category.create(name: 'Produce', user_id: 1)
+Category.create(name: 'Dairy', user_id: 1)
+Category.create(name: 'Dry Goods', user_id: 1)
 
 Dish.create(name: 'Summer Salad', station_id: 1)
 Dish.create(name: 'Beef Tartare', station_id: 1)
