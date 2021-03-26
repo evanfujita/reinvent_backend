@@ -30,7 +30,6 @@ class AuthController < ApplicationController
 
     end
 
-
     private
 
     def user_login_params
@@ -38,17 +37,3 @@ class AuthController < ApplicationController
     end
  
 end
-
-
-# def show
-#     token = request.headers[:Authorization].split(' ')[1]
-#     begin
-#         decoded_token = JWT.decode(token, 'S3CR3T', true, {algorithm: 'HS256'})
-#         user_id = decoded_token[0]['user_id']
-    
-#     user = User.find(user_id)
-#         render json: user
-#     rescue JWT::DecodeError
-#         render json: { error: 'Invalid Token'}
-#     end
-# end

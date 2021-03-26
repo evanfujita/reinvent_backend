@@ -1,3 +1,3 @@
 class DishSerializer < ActiveModel::Serializer
-  attributes :id, :name, :station_id, :notes
+  attributes :id, :name, :station_id, :notes, :components
 end

@@ -6,6 +6,7 @@ class CreateIngredients < ActiveRecord::Migration[6.1]
       t.string :quantity_unit
       t.integer :par
       t.string :category_id
+      t.string :vendor_id
 
       t.timestamps
     end

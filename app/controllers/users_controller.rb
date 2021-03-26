@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     def show
         user = User.find_by(id: params[:id])
-        render json: user 
+        render json: user
     end
     
     def new
@@ -26,6 +26,16 @@ class UsersController < ApplicationController
         else
             render json: user
             render json: { error: 'failed to create user' }, status: :note_acceptable
+        end
+    end
+
+    def update
+        byebug
+        user = User.find(params[:id])
+        if user.update(user_params)
+            render json: user
+        else
+            render json: { error: 'failed to update'}
         end
     end
 

@@ -24,9 +24,11 @@ class IngredientsController < ApplicationController
         ingredient = Ingredient.find_by(id: params[:id])
         render json: ingredient
     end
-
+    
     def update
-        ingredient = Ingredient.find_by(id: params[:id])
+        id = params[:id].to_i
+        quantity = params[:quantity].to_i
+        ingredient = Ingredient.find(id)
         ingredient.update(ingredients_params)
         render json: ingredient
     end
