@@ -1,24 +1,11 @@
-# README
+Ruby v 2.6.1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The backend of Easy Inventory (reinvent) carries all data associated with a user, including the restaurant's information and the ingredients and vendors associated with it.
 
-Things you may want to cover:
+To run:
+- navigate to reinvent_backend directory
+- create the database:
+    - rails db:migrate
+    - rails db: seed
+- run 'rails s'
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        byebug
+        # byebug
         user = User.find(params[:id])
         if user.update(user_params)
             render json: user
@@ -44,8 +44,6 @@ class UsersController < ApplicationController
         user.destroy
         render json: {message: 'deleted'}
     end
-
-
 
     private
 
