@@ -1,6 +1,5 @@
 class AuthController < ApplicationController
     def create
-        # byebug
         user = User.find_by(username: params[:username])
 
         if user && user.authenticate(params[:password])
@@ -27,7 +26,6 @@ class AuthController < ApplicationController
         else
             render json: { error: 'Invalid Token'}
         end
-
     end
 
     private
