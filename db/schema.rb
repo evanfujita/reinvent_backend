@@ -10,46 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_202650) do
+ActiveRecord::Schema.define(version: 2021_03_25_232035) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "component_ingredients", force: :cascade do |t|
-    t.integer "component_id"
-    t.integer "ingredient_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "components", force: :cascade do |t|
-    t.string "name"
-    t.integer "quantity"
-    t.string "quantity_unit"
-    t.integer "par"
-    t.integer "dish_id"
-    t.text "notes"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "dish_components", force: :cascade do |t|
-    t.integer "dish_id"
-    t.integer "component_id"
-    t.integer "quantity"
-    t.string "quantity_unit"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "dishes", force: :cascade do |t|
-    t.string "name"
-    t.integer "station_id"
-    t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -61,22 +26,6 @@ ActiveRecord::Schema.define(version: 2021_03_26_202650) do
     t.integer "par"
     t.string "category_id"
     t.string "vendor_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer "ingredient_id"
-    t.string "quantity_unit"
-    t.integer "previous_amount"
-    t.integer "current_amount"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "stations", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
