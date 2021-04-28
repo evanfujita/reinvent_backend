@@ -35,11 +35,15 @@ class IngredientsController < ApplicationController
     end
 
     def updateInventory
+        updated_ingredients = {}
         params[:ingredients].each do |ingredient|
             updated_ingredient = Ingredient.find_by(id: ingredient.keys[0])
             updated_quantity = ingredient.values[0].to_i
-            updated_ingredient.update(quantity: updated_quantity)
+            if updated_ingredient.update(quantity: updated_quantity)
+                updated_ingredients[updated_ingredient.id] = updated_ingredient
+            end
         end
+        render json: updated_ingredients
     end
 
     def destroy
