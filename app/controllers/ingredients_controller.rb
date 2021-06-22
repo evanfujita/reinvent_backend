@@ -16,7 +16,6 @@ class IngredientsController < ApplicationController
 
     def create
         ingredient = Ingredient.new(ingredients_params)
-        byebug
         ingredient.save
         render json: ingredient
     end
@@ -37,8 +36,8 @@ class IngredientsController < ApplicationController
     def updateInventory
         updated_ingredients = {}
         params[:ingredients].each do |ingredient|
-            updated_ingredient = Ingredient.find_by(id: ingredient.keys[0])
-            updated_quantity = ingredient.values[0].to_i
+            updated_ingredient = Ingredient.find(ingredient[:id])
+            updated_quantity = ingredient[:quantity]
             if updated_ingredient.update(quantity: updated_quantity)
                 updated_ingredients[updated_ingredient.id] = updated_ingredient
             end

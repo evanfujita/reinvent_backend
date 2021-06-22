@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :components
   resources :ingredients
   resources :users
+
   post '/auth', to: 'auth#create'
   get '/current_user', to: 'auth#show'
   patch '/updateInventory', to: 'ingredients#updateInventory'
