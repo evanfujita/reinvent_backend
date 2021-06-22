@@ -1,11 +1,13 @@
 class IngredientsController < ApplicationController
+    before_action :find_ingredient, only: [:show, :edit, :destroy]
+    
     def index
         ingredients = Ingredient.order_by_name
         render json: ingredients
     end
 
     def show
-        ingredient = Ingredient.find_by(id: params[:id])
+        # ingredient = Ingredient.find_by(id: params[:id])
         render json: ingredient
     end
 
@@ -21,7 +23,7 @@ class IngredientsController < ApplicationController
     end
 
     def edit
-        ingredient = Ingredient.find_by(id: params[:id])
+        # ingredient = Ingredient.find_by(id: params[:id])
         render json: ingredient
     end
     
@@ -46,12 +48,16 @@ class IngredientsController < ApplicationController
     end
 
     def destroy
-        ingredient = Ingredient.find_by(id: params[:id])
+        # ingredient = Ingredient.find_by(id: params[:id])
         ingredient.destroy
         render json: { message: 'deleted!' }
     end
 
     private
+
+    def find_ingredient
+        @ingredient = Ingredient.where(id: params[:id])
+    end
 
     def ingredients_params
         params.require(:ingredient).permit(:name, :quantity, :quantity_unit, :par, :category_id, :vendor_id)
