@@ -3,6 +3,6 @@ class Category < ApplicationRecord
     has_many :ingredients
 
     scope :order_by_name, -> { order(:name) }
-
     
+
 end

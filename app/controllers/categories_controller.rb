@@ -8,7 +8,6 @@ class CategoriesController < ApplicationController
     end
 
     def show
-        # category = Category.find_by(id: params[:id])
         render json: category
     end
 
@@ -24,18 +23,18 @@ class CategoriesController < ApplicationController
     end
 
     def edit
-        # category = Category.find_by(id: params[:id])
+        
         render json: category
     end
-
+``
     def update
-        # category = Category.find_by(id: params[:id])
+        
         category.update(categories_params)
         render json: category
     end
 
     def destroy
-        # category = Category.find_by(id: params[:id])
+        
         category.destroy
         render json: { message: 'deleted!' }
     end
