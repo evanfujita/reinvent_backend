@@ -5,5 +5,10 @@ class Ingredient < ApplicationRecord
     has_many :component_ingredients
     has_many :components, through: :component_ingredients
 
-    scope :order_by_name, -> { order(:name) }
+    scope :order_by_name, -> { order(:name)}
+    
+    def self.low_ingredients
+        Ingredient.where(low: true)
+    end
+
 end

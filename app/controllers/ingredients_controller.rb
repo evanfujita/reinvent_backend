@@ -6,6 +6,14 @@ class IngredientsController < ApplicationController
         render json: ingredients
     end
 
+    def renderIngredients
+        ingredients = Ingredient.order_by_name
+        low_ingredients = Ingredient.low_ingredients
+        all_ingredients = {ingredients: ingredients, low_ingredients: low_ingredients}
+
+        render json: all_ingredients
+    end
+
     def show
         # ingredient = Ingredient.find_by(id: params[:id])
         render json: ingredient
@@ -38,9 +46,10 @@ class IngredientsController < ApplicationController
     def updateInventory
         updated_ingredients = {}
         params[:ingredients].each do |ingredient|
-            updated_ingredient = Ingredient.find(ingredient[:id])
-            updated_quantity = ingredient[:quantity]
-            if updated_ingredient.update(quantity: updated_quantity)
+            updated_ingredient = Ingredient.find(ingredient[:ingredient][:id])
+            updated_quantity = ingredient[:newQuantity]
+            is_low = updated_quantity < updated_ingredient.par
+            if updated_ingredient.update(quantity: updated_quantity, low: is_low)
                 updated_ingredients[updated_ingredient.id] = updated_ingredient
             end
         end

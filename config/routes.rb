@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   post '/auth', to: 'auth#create'
   get '/current_user', to: 'auth#show'
   patch '/updateInventory', to: 'ingredients#updateInventory'
+  get '/getIngredients', to: 'ingredients#renderIngredients'
 
 end
