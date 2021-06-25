@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :vendor_id, foreign_key: true
       t.integer :quantity_ordered
       t.integer :user_id, foreign_key: true
+      t.boolean :pending, default: true
       t.boolean :received, default: false
       t.integer :quantity_received
 

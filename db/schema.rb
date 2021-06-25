@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_06_25_180709) do
     t.integer "vendor_id"
     t.integer "quantity_ordered"
     t.integer "user_id"
+    t.boolean "pending", default: true
     t.boolean "received", default: false
     t.integer "quantity_received"
     t.datetime "created_at", precision: 6, null: false

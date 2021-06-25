@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
 
   resources :orders
-  resources :vendors
-  resources :component_ingredients
-  resources :stations
+  resources :vendors  
   resources :categories
-  resources :dish_components
-  resources :dishes
-  resources :components
   resources :ingredients
   resources :users
 
@@ -15,5 +10,7 @@ Rails.application.routes.draw do
   get '/current_user', to: 'auth#show'
   patch '/updateInventory', to: 'ingredients#updateInventory'
   get '/getIngredients', to: 'ingredients#renderIngredients'
+  post '/sendOrder', to: 'orders#batch_order'
+  patch 'acceptOrder', to: 'orders#accept_order'
 
 end

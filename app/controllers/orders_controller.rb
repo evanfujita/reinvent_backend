@@ -16,11 +16,24 @@ class OrdersController < ApplicationController
     end
 
     def update
-        
+
     end
 
     def destroy
         
+    end
+
+    def batch_order
+        ingredients = params[:order]
+        ingredients.each do |ing|
+            a = ing[:ingredient]
+            q = ing[:quantity]
+            Order.create(ingredient_id: a[:id], vendor_id: a[:vendor_id], user_id: 1, quantity_ordered: q)
+        end
+    end
+
+    def accept_order
+
     end
 
     private
