@@ -9,4 +9,12 @@ class Ingredient < ApplicationRecord
         Ingredient.where(low: true)
     end
 
+    def self.pending_orders
+        Ingredient.where(pending: true)
+    end
+
+    def low_ingredients_not_ordered
+        
+    end
+
 end

@@ -10,7 +10,6 @@ class IngredientsController < ApplicationController
         ingredients = Ingredient.order_by_name
         low_ingredients = Ingredient.low_ingredients
         all_ingredients = {ingredients: ingredients, low_ingredients: low_ingredients}
-
         render json: all_ingredients
     end
 
@@ -57,7 +56,6 @@ class IngredientsController < ApplicationController
     end
 
     def destroy
-        # ingredient = Ingredient.find_by(id: params[:id])
         ingredient.destroy
         render json: { message: 'deleted!' }
     end
@@ -65,7 +63,7 @@ class IngredientsController < ApplicationController
     private
 
     def find_ingredient
-        @ingredient = Ingredient.where(id: params[:id])
+        ingredient = Ingredient.where(id: params[:id])
     end
 
     def ingredients_params
