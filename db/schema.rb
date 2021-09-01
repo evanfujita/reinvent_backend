@@ -10,22 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_25_180709) do
+ActiveRecord::Schema.define(version: 2021_09_01_002932) do
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
+    t.string "name", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.string "name"
-    t.integer "quantity"
-    t.string "quantity_unit"
-    t.integer "par"
-    t.string "category_id"
-    t.string "vendor_id"
+    t.string "name", null: false
+    t.integer "quantity", default: 1
+    t.string "quantity_unit", null: false
+    t.integer "par", null: false
+    t.string "category_id", null: false
+    t.string "vendor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "low"
@@ -43,19 +43,26 @@ ActiveRecord::Schema.define(version: 2021_06_25_180709) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "location", null: false
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "restaurant_name"
+    t.string "username", null: false
+    t.string "password_digest", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "vendors", force: :cascade do |t|
-    t.string "name"
-    t.string "representative"
+    t.string "name", null: false
+    t.string "representative", null: false
     t.string "phone"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false

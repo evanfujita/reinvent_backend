@@ -5,7 +5,7 @@ Vendor.destroy_all
 
 User.create(first_name: 'Evan', last_name: 'Fujita', username: 'evan', password: 'aaa', password_confirmation: 'aaa')
 
-Restaurant.create(name: 'Fujiya')
+Restaurant.create(name: 'Fujiya', location: 'Chicago', phone: '111-111-1111')
 
 Vendor.create(name: 'GFS', representative: 'Abbie', phone: '708-432-9083', email: 'evanfujita@gmail.com')
 Vendor.create(name: 'Local Farms', representative: 'James', phone: '847-908-1232', email: 'evanfujita@gmail.com')
