@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2021_09_01_002932) do
     t.string "password_digest", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.integer "restaurant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
