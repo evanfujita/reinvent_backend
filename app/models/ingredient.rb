@@ -3,6 +3,8 @@ class Ingredient < ApplicationRecord
     belongs_to :vendor
     has_many :orders
 
+    has_paper_trail
+    
     scope :order_by_name, -> { order(:name)}
     
     def self.low_ingredients

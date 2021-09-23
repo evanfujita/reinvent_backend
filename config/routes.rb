@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :users
 
+  get '/searchingredient', to: 'ingredients#search'
+
   post '/auth', to: 'auth#create'
   get '/current_user', to: 'auth#show'
   patch '/updateInventory', to: 'ingredients#updateInventory'

@@ -1,3 +1,4 @@
+require_relative '../../.secret'
 class IngredientsController < ApplicationController
     before_action :find_ingredient, only: [:show, :edit, :destroy]
     
@@ -27,6 +28,11 @@ class IngredientsController < ApplicationController
         ingredient = Ingredient.new(ingredients_params)
         ingredient.save
         render json: ingredient
+    end
+
+    def search
+        url = "https://api.edamam.com/auto-complete?app_id=${food_api_id}&app_key=${food_api_key}&q=#{}"
+        render json:
     end
 
     def edit
